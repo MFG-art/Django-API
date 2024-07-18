@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
+from rest_framework.viewsets import ModelViewSet
 from .models import BlogPost
 from .serializers import BlogPostSerializer
 
@@ -12,3 +13,7 @@ class BlogPostRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
     lookup_field = "pk"
+
+class BlogPostViewSet(ModelViewSet):
+    queryset = BlogPost.objects.all()
+    serializer_class = BlogPostSerializer
